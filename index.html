@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Custom</title>
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.3.1-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="font/stylesheet.css">
+</head>
+<body  style="margin-right: 15px; font-family:'B Yas';" dir="rtl">
+    <div style="text-align: right;">
+        <h2>پرسش خود را وارد کنید :
+        </h2>
+    </div>
+    <div style="text-align: right;">
+    <form id="myForm">
+        <textarea name="" id="question" rows="4" cols="50" placeholder="سوال این جا وارد کنید"></textarea>
+        <br>
+        <button style="text-align: center;" type="submit"  class="btn btn-primary">
+            ارسال
+        </button>
+    </form>
+    <div>
+    <hr>
+    <h1 style="text-align: center;color: brown;" >AI</h1> 
+    <br>
+    <h2 style="text-align: left;"><img src="imges/ai.jpg" style="width: 150px;height:150px; border-radius: 50%; border: 2.5px solid green;" alt=""></h2>
+    <pre id="responseOutput" style="border: 0.5px solid red; font-size: larger;"></pre>
+</body>
+
+
+<script>
+    const apikey="AIzaSyCHmwddws_0j4NbEInMk-kv52E_FUhNH-Q"
+    const url="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCHmwddws_0j4NbEInMk-kv52E_FUhNH-Q"
+
+
+
+    document.getElementById("myForm").addEventListener("submit",async function(event){
+            event.preventDefault();
+ 
+
+
+
+    const userText = document.getElementById('question').value;
+    const responseOutput = document.getElementById('responseOutput');
+
+
+    const requestBody={
+  contents: [{
+    parts:[{text: userText}]
+    }]
+   };
+
+   try{
+    const response = await fetch(url,
+    {
+        method:'POST', 
+        headers: {'Content-Type': 'application/json'},
+        body:JSON.stringify(requestBody)
+    });
+
+
+    debugger    
+
+    const data = await response.json(); 
+    const result = data.candidates?.[0]?.content?.parts?.[0]?.text || " !!پاسخی دریافت نشد" ;
+    responseOutput.textContent=result;
+
+   }catch(error)
+   {
+        responseOutput.textContent = error.message;
+   }
+
+   }); 
+
+
+
+</script>
+</html>  

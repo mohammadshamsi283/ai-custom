@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'B Yas';
+    src: url('BYas.woff2') format('woff2'),
+        url('BYas.woff') format('woff'),
+        url('BYas.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
