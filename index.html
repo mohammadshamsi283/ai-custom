@@ -9,24 +9,38 @@
     <link rel="stylesheet" href="font/stylesheet.css">
 </head>
 <body  style="margin-right: 15px; font-family:'B Yas';" dir="rtl">
-    <div style="text-align: right;">
-        <h2>پرسش خود را وارد کنید :
-        </h2>
+    
+
+    <div class="card p-5 " style="border: 2px solid blue; margin-top: 20px;margin-left: 8px;">
+<div class="text-center">
+  <img src="imges/ai.jpg" style="width: 150px;height:150px; border-radius: 50%; border: 2.5px solid green;" alt="">
+
+</div>
+
+<p class="text-center mt-3 alert alert-success" style="font-size: 25px;font-weight: 200;"> سیستم هوش مصنوعی (AI)</p>
+
+    
+    <div style="text-align: right;margin-top: 5px;">
+        <h4>پرسش خود را وارد کنید :
+        </h4>
     </div>
     <div style="text-align: right;">
     <form id="myForm">
-        <textarea name="" id="question" rows="4" cols="50" placeholder="سوال این جا وارد کنید"></textarea>
+        <textarea name="" id="question" class="form-control" rows="5" style="border: 1px solid black;" placeholder="سوال این جا وارد کنید"></textarea>
         <br>
-        <button style="text-align: center;" type="submit"  class="btn btn-primary">
+        <button style="text-align: center;" type="submit"  class="btn btn-primary form-control">
             ارسال
         </button>
     </form>
     <div>
     <hr>
-    <h1 style="text-align: center;color: brown;" >AI</h1> 
+    <h4 style="text-align: center;" class="alert alert-warning" >پاسخ شما </h4> 
     <br>
-    <h2 style="text-align: left;"><img src="imges/ai.jpg" style="width: 150px;height:150px; border-radius: 50%; border: 2.5px solid green;" alt=""></h2>
-    <pre id="responseOutput" style="border: 0.5px solid red; font-size: larger;"></pre>
+    <p id="responseOutput" class="alert alert-success" style="color: black;font-size: larger;"> در انتظار پاسخ ....</p>
+
+    </div>
+
+
 </body>
 
 
